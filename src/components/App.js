@@ -4,7 +4,10 @@ function App() {
   return (
     <>
       <div>
-        <section>działa</section>
+        <section>
+          Working Fine!
+          <Contacts />
+        </section>
       </div>
     </>
   );
