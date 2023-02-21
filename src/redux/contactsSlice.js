@@ -54,7 +54,7 @@ export const selectContactsCount = createSelector(
   }
 );
 
-const contactsSlice = createSlice({
+const contactsReducer = createSlice({
   name: 'contacts',
   initialState: {
     items: [],
@@ -113,4 +113,4 @@ const contactsSlice = createSlice({
   },
 });
 
-export { contactsSlice };
+export { contactsReducer };
