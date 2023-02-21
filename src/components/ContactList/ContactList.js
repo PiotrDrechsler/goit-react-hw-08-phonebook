@@ -4,9 +4,9 @@ import {
   selectStatusFilter,
   selectContacts,
   selectIsLoading,
-} from 'redux/selectors';
+} from 'redux/contacts/selectors';
 
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/contacts/operations';
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
