@@ -1,14 +1,17 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 
 import { fetchContacts } from 'redux/contacts/operations';
+import { selectIsLoading } from 'redux/contacts/selectors';
 
 const App = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -16,9 +19,12 @@ const App = () => {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <Helmet>
+        <h1>Phonebook</h1>
+      </Helmet>
       <ContactForm />
       <h2>Contacts</h2>
+      <div>{isLoading && 'Request in progress...'}</div>
       <Filter />
       <ContactList />
     </div>
