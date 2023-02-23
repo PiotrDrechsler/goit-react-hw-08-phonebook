@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -24,8 +25,10 @@ export const register = createAsyncThunk(
       const res = await axios.post('/users/signup', credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      Notify.success('Registrated succesfully!');
       return res.data;
     } catch (error) {
+      Notify.failure('Registration failed!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -42,8 +45,10 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      Notify.success('Logged in!');
       return res.data;
     } catch (error) {
+      Notify.failure('Login failed!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -55,9 +60,11 @@ export const logIn = createAsyncThunk(
  */
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    const res = await axios.post('/users/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
+    Notify.info('Logout');
+    return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -82,7 +89,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/me');
+      const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
