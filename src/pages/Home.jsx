@@ -1,26 +1,16 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { Container, Box, Heading, Text } from '@chakra-ui/react';
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <Container maxW="3xl" centerContent>
+      <Box padding="6" bg="gray.100" boxShadow="lg" mt="10">
+        <Heading size="2xl" mb="4">
+          Welcome to your Phonebook
+        </Heading>
+        <Text fontSize="xl" mb="8">
+          Easily organize your contacts and stay connected with your loved ones.
+        </Text>
+      </Box>
+    </Container>
   );
 }

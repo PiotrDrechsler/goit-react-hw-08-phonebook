@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
+import { FormControl, FormLabel, Input, Button, Flex } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -30,33 +31,34 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleAddContact}>
-      <label htmlFor="name">
-        Name
-        <input
-          autoComplete="off"
+    <Flex direction="column" align="center" m="4">
+      <FormControl as="form" onSubmit={handleAddContact}>
+        <FormLabel htmlFor="name">Name</FormLabel>
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="e.g. John Doe"
           required
+          mb="4"
         />
-      </label>
-      <label htmlFor="phone">
-        Number
-        <input
-          autoComplete="off"
+        <FormLabel htmlFor="phone">Number</FormLabel>
+        <Input
           type="tel"
           name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           placeholder="e.g. 123-456-789"
           required
+          mb="4"
         />
-      </label>
-      <button type="submit">Add contact</button>
-    </form>
+        <Button type="submit" bg="blue.500" color="white">
+          Add contact
+        </Button>
+      </FormControl>
+    </Flex>
   );
 };
+
 export default ContactForm;

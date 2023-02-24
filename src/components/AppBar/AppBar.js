@@ -1,16 +1,19 @@
+import { Flex, Box, Spacer } from '@chakra-ui/react';
 import { Navigation } from '../Navigation/Navigation';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { useAuth } from 'hooks';
-import css from './AppBar.module.css';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <header className={css.header}>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
+    <Flex alignItems="center" bg="blue.600" color="white" px="4" py="3">
+      <Box>
+        <Navigation />
+      </Box>
+      <Spacer />
+      <Box>{isLoggedIn ? <UserMenu /> : <AuthNav />}</Box>
+    </Flex>
   );
 };

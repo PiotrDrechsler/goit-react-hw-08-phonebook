@@ -1,20 +1,20 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
-import css from './Navigation.module.css';
+import { Flex, Link } from '@chakra-ui/react';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
+    <Flex as="nav">
+      <Link as={NavLink} className="link" to="/">
         Home
-      </NavLink>
+      </Link>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
+        <Link as={NavLink} className="link" to="/contacts">
           Contacts
-        </NavLink>
+        </Link>
       )}
-    </nav>
+    </Flex>
   );
 };

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -25,7 +26,7 @@ const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <div>{isLoading && 'Request in progress...'}</div>
-      <Filter />
+      {isLoading ? null : <Filter />}
       <ContactList />
     </div>
   );

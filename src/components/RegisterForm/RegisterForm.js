@@ -1,38 +1,58 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import css from './RegisterForm.module.css';
+import { Input, Button, FormControl, FormLabel, Box } from '@chakra-ui/react';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [userData, setUserData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
+    dispatch(register(userData));
+    setUserData({ name: '', email: '', password: '' });
+  };
+
+  const handleChange = e => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <Box as="form" onSubmit={handleSubmit} py="4" mx="auto" maxW="xs">
+      <FormControl id="name" isRequired>
+        <FormLabel>Username</FormLabel>
+        <Input
+          type="text"
+          name="name"
+          value={userData.name}
+          onChange={handleChange}
+        />
+      </FormControl>
+      <FormControl id="email" isRequired>
+        <FormLabel>Email</FormLabel>
+        <Input
+          type="email"
+          name="email"
+          value={userData.email}
+          onChange={handleChange}
+        />
+      </FormControl>
+      <FormControl id="password" isRequired>
+        <FormLabel>Password</FormLabel>
+        <Input
+          type="password"
+          name="password"
+          value={userData.password}
+          onChange={handleChange}
+        />
+      </FormControl>
+      <Button mt="4" colorScheme="blue" type="submit">
+        Register
+      </Button>
+    </Box>
   );
 };
