@@ -31,7 +31,7 @@ const ContactList = () => {
           mt="5"
         >
           {filteredContacts.length > 0 ? (
-            filteredContacts.map(({ id, name, phone }) => (
+            filteredContacts.map(({ id, name, number }) => (
               <Box
                 key={id}
                 w={{ base: '80vw', sm: '50vw', md: '30vw', lg: '20vw' }}
@@ -48,7 +48,7 @@ const ContactList = () => {
                   />
                 </Flex>
                 <Box p="2">
-                  <Text>{phone}</Text>
+                  <Text>{number}</Text>
                 </Box>
               </Box>
             ))

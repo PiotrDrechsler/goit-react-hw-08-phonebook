@@ -1,7 +1,8 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Input, FormControl, FormLabel } from '@chakra-ui/react';
 
 import { setFilter } from 'redux/contacts/filtersSlice';
+import { selectStatusFilter } from 'redux/contacts/selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,13 @@ const Filter = () => {
 
   return (
     <FormControl id="filter">
-      <FormLabel>Find contacts by name or phone number</FormLabel>
-      <Input type="text" name="filter" onChange={onChange} />
+      <FormLabel>Find contacts by name</FormLabel>
+      <Input
+        type="text"
+        name="filter"
+        value={useSelector(selectStatusFilter)}
+        onChange={onChange}
+      />
     </FormControl>
   );
 };
