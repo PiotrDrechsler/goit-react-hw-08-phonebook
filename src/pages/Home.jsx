@@ -3,7 +3,7 @@ import { Container, Box, Heading, Text } from '@chakra-ui/react';
 export default function Home() {
   return (
     <Container maxW="3xl" centerContent>
-      <Box padding="6" bg="gray.100" boxShadow="lg" mt="10">
+      <Box padding="6" mt="10">
         <Heading size="2xl" mb="4">
           Welcome to your Phonebook
         </Heading>

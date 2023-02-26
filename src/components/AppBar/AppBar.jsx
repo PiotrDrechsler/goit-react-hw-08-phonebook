@@ -8,7 +8,7 @@ export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <Flex alignItems="center" bg="blue.600" color="white" px="4" py="3">
+    <Flex alignItems="center" px="4" py="3">
       <Box>
         <Navigation />
       </Box>

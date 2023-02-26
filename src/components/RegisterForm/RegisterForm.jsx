@@ -22,35 +22,41 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Box as="form" onSubmit={handleSubmit} py="4" mx="auto" maxW="xs">
+    <Box as="form" onSubmit={handleSubmit} py="4" mx="auto">
       <FormControl id="name" isRequired>
-        <FormLabel>Username</FormLabel>
+        <FormLabel focus={{ color: 'blue.600' }}>Username</FormLabel>
         <Input
+          placeholder="* Enter your username"
+          width="100%"
           type="text"
           name="name"
           value={userData.name}
           onChange={handleChange}
         />
       </FormControl>
-      <FormControl id="email" isRequired>
-        <FormLabel>Email</FormLabel>
+      <FormControl mt="10px" id="email" isRequired>
+        <FormLabel focus={{ color: 'blue.600' }}>Email</FormLabel>
         <Input
+          placeholder="* Enter your email adress"
+          width="100%"
           type="email"
           name="email"
           value={userData.email}
           onChange={handleChange}
         />
       </FormControl>
-      <FormControl id="password" isRequired>
-        <FormLabel>Password</FormLabel>
+      <FormControl mt="10px" id="password" isRequired>
+        <FormLabel focus={{ color: 'blue.600' }}>Password</FormLabel>
         <Input
+          placeholder="* Enter your password"
+          width="100%"
           type="password"
           name="password"
           value={userData.password}
           onChange={handleChange}
         />
       </FormControl>
-      <Button mt="4" colorScheme="blue" type="submit">
+      <Button mt="20px" colorScheme="blue" variant="solid" type="submit">
         Register
       </Button>
     </Box>

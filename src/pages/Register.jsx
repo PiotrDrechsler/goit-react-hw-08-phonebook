@@ -1,4 +1,5 @@
 import { Container, Box, Heading } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
@@ -8,11 +9,13 @@ export default function Register() {
       <Helmet>
         <title>Registration</title>
       </Helmet>
-      <Box padding="6" bg="gray.100" boxShadow="lg" mt="10" textAlign="center">
-        <Heading size="xl" mb="8">
-          Create a new Phonebook account
-        </Heading>
+      <Box padding="6" mt="10">
+        <Heading size="xl">Create a new Phonebook account</Heading>
         <RegisterForm />
+        Already have an account?{' '}
+        <Link to="/login" style={{ textDecoration: 'underline' }}>
+          Log in here.
+        </Link>
       </Box>
     </Container>
   );
