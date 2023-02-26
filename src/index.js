@@ -11,11 +11,13 @@ import 'modern-normalize';
 import App from 'components/App';
 import './index.css';
 
+const PUBLIC_URL = 'goit-react-hw-08-phonebook';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <ChakraProvider>
             <App />
           </ChakraProvider>
