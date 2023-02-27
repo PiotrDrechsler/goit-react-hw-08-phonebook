@@ -9,7 +9,6 @@ export const Navigation = () => {
     <Flex as="nav">
       <Link as={NavLink} className="link" to="/">
         <Button
-          mt="20px"
           colorScheme="teal"
           variant="solid"
           textDecor="none"
@@ -19,8 +18,15 @@ export const Navigation = () => {
         </Button>
       </Link>
       {isLoggedIn && (
-        <Link as={NavLink} className="link" to="/contacts">
-          Contacts
+        <Link as={NavLink} className="link" to="/contacts" ml="16px">
+          <Button
+            colorScheme="teal"
+            variant="solid"
+            textDecor="none"
+            type="submit"
+          >
+            Contacts
+          </Button>
         </Link>
       )}
     </Flex>

@@ -1,5 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Flex, Box, Text, IconButton, CloseButton } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Text,
+  IconButton,
+  CloseButton,
+  SimpleGrid,
+} from '@chakra-ui/react';
 import {
   selectStatusFilter,
   selectContacts,
@@ -15,8 +22,10 @@ const ContactList = () => {
 
   const handleDeleteContact = id => dispatch(deleteContact(id));
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+  const filteredContacts = contacts.filter(
+    contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+      contact.number.includes(filter)
   );
 
   return (
@@ -24,17 +33,11 @@ const ContactList = () => {
       {isLoading ? (
         <Text>Loading...</Text>
       ) : (
-        <Flex
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          mt="5"
-        >
+        <SimpleGrid columns={4} spacing={10}>
           {filteredContacts.length > 0 ? (
             filteredContacts.map(({ id, name, number }) => (
               <Box
                 key={id}
-                w={{ base: '80vw', sm: '50vw', md: '30vw', lg: '20vw' }}
                 borderWidth="1px"
                 borderRadius="lg"
                 overflow="hidden"
@@ -55,7 +58,7 @@ const ContactList = () => {
           ) : (
             <Text>No contacts found</Text>
           )}
-        </Flex>
+        </SimpleGrid>
       )}
     </>
   );

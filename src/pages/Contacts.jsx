@@ -24,7 +24,6 @@ const App = () => {
         <h1>Phonebook</h1>
       </Helmet>
       <ContactForm />
-      <h2>Contacts</h2>
       <div>{isLoading && 'Request in progress...'}</div>
       {isLoading ? null : <Filter />}
       <ContactList />

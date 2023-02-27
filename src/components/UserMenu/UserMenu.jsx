@@ -9,8 +9,16 @@ export const UserMenu = () => {
 
   return (
     <Box display="flex" alignItems="center">
-      <Text mr="4">Welcome, {user.email}</Text>
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
+      <Text as="b" mr="4">
+        Welcome, {user.email}
+      </Text>
+      <Button
+        onClick={() => dispatch(logOut())}
+        colorScheme="blue"
+        variant="solid"
+      >
+        Logout
+      </Button>
     </Box>
   );
 };

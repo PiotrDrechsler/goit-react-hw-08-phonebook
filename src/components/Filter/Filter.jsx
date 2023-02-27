@@ -14,12 +14,13 @@ const Filter = () => {
 
   return (
     <FormControl id="filter">
-      <FormLabel>Find contacts by name</FormLabel>
+      <FormLabel>Search list:</FormLabel>
       <Input
-        type="text"
+        type="search"
         name="filter"
         value={useSelector(selectStatusFilter)}
         onChange={onChange}
+        placeholder="Find contacts by name or phone number"
       />
     </FormControl>
   );

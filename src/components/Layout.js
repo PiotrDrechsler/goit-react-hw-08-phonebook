@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 export const Layout = () => {
   return (
     <ChakraProvider>
-      <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+      <div style={{ maxWidth: 1600, margin: '0 auto', padding: '50px 50px' }}>
         <AppBar />
         <Suspense fallback={null}>
           <Outlet />
