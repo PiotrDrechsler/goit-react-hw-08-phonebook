@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Container, Box, Heading, Text, Button, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Button, Image } from '@chakra-ui/react';
 
 import welcome from '../images/welcome.svg';
 
