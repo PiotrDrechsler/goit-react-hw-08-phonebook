@@ -5,10 +5,28 @@ export const AuthNav = () => {
   return (
     <Box display="flex" alignItems="center">
       <NavLink to="/login">
-        <Button>LOG IN</Button>
+        <Button
+          color="brand.creme"
+          variant="solid"
+          borderColor="yellow"
+          bg="transparent"
+          mr="20"
+        >
+          LOGIN
+        </Button>
       </NavLink>
       <NavLink to="/register">
-        <Button>SIGN UP</Button>
+        <Button
+          width="220px"
+          color="brand.creme"
+          variant="solid"
+          borderRadius="50px"
+          border="4px"
+          borderColor="brand.yellow"
+          bg="transparent"
+        >
+          SIGN UP
+        </Button>
       </NavLink>
     </Box>
   );

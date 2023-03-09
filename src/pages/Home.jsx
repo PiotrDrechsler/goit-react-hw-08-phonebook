@@ -5,25 +5,41 @@ import welcome from '../images/welcome.svg';
 
 export default function Home() {
   return (
-    <Box>
+    <Box position="relative">
       <Image
         alt="Welcome image for PHONEBOOK"
-        zIndex="hide"
+        zIndex="-1"
         position="absolute"
-        right="200"
-        top="200"
-        height="700"
+        right="-40"
+        height="850"
         src={welcome}
       />
       <Box>
-        <Box color="brand.creme" m="100">
-          <Heading mb="4">Welcome to your PHONEBOOK</Heading>
-          <Text color="brand.main" fontSize="xl" mb="8">
-            Easily organize your contacts and stay connected with your loved
-            ones.
+        <Box color="brand.creme" mt="100">
+          <Heading fontSize="80" fontWeight="700" lineHeight="90%" mb="10">
+            WELCOME TO YOUR <br></br> PHONEBOOK
+          </Heading>
+          <Text
+            color="brand.main"
+            fontSize="25"
+            fontWeight="500"
+            maxW="3xl"
+            mb="8"
+          >
+            Organize your contacts easily and stay connected <br></br>with loved
+            ones. Use digital tools to create and maintain <br></br>a
+            comprehensive contact list, and keep in touch through PHONEBOOK.
           </Text>
           <NavLink to="/register">
-            <Button color="brand.main">Create your own PHONEBOOK!</Button>
+            <Button
+              color="brand.main"
+              variant="solid"
+              colorScheme="yellow"
+              p="10"
+              borderRadius="50"
+            >
+              Let's start!
+            </Button>
           </NavLink>
         </Box>
       </Box>
