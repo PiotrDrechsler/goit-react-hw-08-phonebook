@@ -8,13 +8,7 @@ export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <Flex
-      alignItems="center"
-      borderBottom="1px"
-      borderColor="gray.200"
-      px="4"
-      py="3"
-    >
+    <Flex alignItems="center">
       <Box>
         <Navigation />
       </Box>
