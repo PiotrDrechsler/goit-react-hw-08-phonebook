@@ -36,7 +36,7 @@ export const logIn = createAsyncThunk(
       Notify.success('Logged in!');
       return data;
     } catch (error) {
-      Notify.failure('Login failed!');
+      Notify.failure('Enter a valid email address and password');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
