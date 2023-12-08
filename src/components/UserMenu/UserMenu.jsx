@@ -12,13 +12,7 @@ export const UserMenu = () => {
       <Text as="b" mr="4">
         Welcome, {user.email}
       </Text>
-      <Button
-        onClick={() => dispatch(logOut())}
-        colorScheme="blue"
-        variant="solid"
-      >
-        Logout
-      </Button>
+      <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </Box>
   );
 };

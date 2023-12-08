@@ -56,7 +56,7 @@ export const RegisterForm = () => {
           onChange={handleChange}
         />
       </FormControl>
-      <Button mt="20px" colorScheme="blue" variant="solid" type="submit">
+      <Button mt="20px" type="submit">
         Register
       </Button>
     </Box>

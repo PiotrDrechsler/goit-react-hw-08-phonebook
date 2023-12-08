@@ -54,9 +54,7 @@ const ContactForm = () => {
           required
           mb="4"
         />
-        <Button type="submit" bg="blue.500" color="white">
-          Add contact
-        </Button>
+        <Button type="submit">Add contact</Button>
       </FormControl>
     </Flex>
   );
