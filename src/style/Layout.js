@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 
-import { AppBar } from './AppBar/AppBar';
+import { AppBar } from '../components/AppBar/AppBar';
 
 import theme from './Theme';
 

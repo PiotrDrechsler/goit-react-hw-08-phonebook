@@ -1,4 +1,3 @@
-import { extendTheme } from '@chakra-ui/react';
 import { defineStyleConfig } from '@chakra-ui/react';
 
 const Button = defineStyleConfig({
@@ -30,7 +29,6 @@ const Button = defineStyleConfig({
         border: '2px',
         borderColor: 'brand.yellow',
         borderRadius: 50,
-        
       },
       _active: {
         bg: 'brand.lightYellow',
@@ -53,29 +51,4 @@ const Button = defineStyleConfig({
   },
 });
 
-const theme = extendTheme({
-  fonts: {
-    body: `'Poppins', sans-serif`,
-  },
-  styles: {
-    global: {
-      body: {
-        bg: '#5ab2a6',
-        color: '#523221',
-      },
-    },
-  },
-  colors: {
-    brand: {
-      main: '#523221',
-      creme: '#f6e6c7',
-      yellow: '#eec54b',
-      lightYellow: '#f2d47a',
-    },
-  },
-  components: {
-    Button,
-  },
-});
-
-export default theme;
+export default Button;
