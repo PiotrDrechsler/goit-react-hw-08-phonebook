@@ -54,7 +54,9 @@ const ContactForm = () => {
           required
           mb="4"
         />
-        <Button type="submit">Add contact</Button>
+        <Button variant="solid" type="submit">
+          Add contact
+        </Button>
       </FormControl>
     </Flex>
   );

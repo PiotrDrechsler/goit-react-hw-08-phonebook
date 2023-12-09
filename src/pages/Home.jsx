@@ -21,7 +21,9 @@ export default function Home() {
             comprehensive contact list, and keep in touch through PHONEBOOK.
           </Text>
           <NavLink to="/register">
-            <Button>Let's start!</Button>
+            <Button variant="solid" fontSize="xl" px="20" py="10">
+              Let's start!
+            </Button>
           </NavLink>
         </Box>
       </Box>

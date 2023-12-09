@@ -37,7 +37,7 @@ export const LoginForm = () => {
           name="password"
         />
       </FormControl>
-      <Button mt="20px" type="submit">
+      <Button variant="solid" mt="20px" type="submit">
         Log In
       </Button>
     </Box>
