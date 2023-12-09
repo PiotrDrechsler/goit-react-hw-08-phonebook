@@ -13,7 +13,7 @@ const Filter = () => {
   };
 
   return (
-    <FormControl id="filter">
+    <FormControl id="filter" mb="5">
       <FormLabel>Search list:</FormLabel>
       <Input
         type="search"

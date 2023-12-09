@@ -33,7 +33,7 @@ const ContactList = () => {
       {isLoading ? (
         <Text>Loading...</Text>
       ) : (
-        <SimpleGrid columns={4} spacing={10}>
+        <SimpleGrid columns={5} spacing={10} overflow="hidden">
           {filteredContacts.length > 0 ? (
             filteredContacts.map(({ id, name, number }) => (
               <Box

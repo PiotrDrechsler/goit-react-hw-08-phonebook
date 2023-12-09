@@ -31,7 +31,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Flex direction="column" align="center" m="4">
+    <Flex direction="column" align="center" my="10">
       <FormControl as="form" onSubmit={handleAddContact}>
         <FormLabel htmlFor="name">Name</FormLabel>
         <Input
