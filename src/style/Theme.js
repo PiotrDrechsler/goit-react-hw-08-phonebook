@@ -1,5 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
+
 import Button from './components/Button';
+
 const theme = extendTheme({
   fonts: {
     body: `'Poppins', sans-serif`,
@@ -18,6 +20,7 @@ const theme = extendTheme({
       creme: '#f6e6c7',
       yellow: '#eec54b',
       lightYellow: '#f2d47a',
+      lighterYellow: '#f7e5af ',
     },
   },
   components: {

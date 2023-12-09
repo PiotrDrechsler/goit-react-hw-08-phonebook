@@ -8,11 +8,23 @@ export const Navigation = () => {
   return (
     <Flex as="nav">
       <Link as={NavLink} className="link" to="/">
-        <Button type="submit">HOME</Button>
+        {({ isActive }) =>
+          isActive ? (
+            <Button variant="solidActive">HOME</Button>
+          ) : (
+            <Button>HOME</Button>
+          )
+        }
       </Link>
       {isLoggedIn && (
         <Link as={NavLink} className="link" to="/contacts" ml="16px">
-          <Button type="submit">CONTACTS</Button>
+          {({ isActive }) =>
+            isActive ? (
+              <Button variant="solidActive">CONTACTS</Button>
+            ) : (
+              <Button>CONTACTS</Button>
+            )
+          }
         </Link>
       )}
     </Flex>

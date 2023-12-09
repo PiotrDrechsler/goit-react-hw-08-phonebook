@@ -5,10 +5,24 @@ export const AuthNav = () => {
   return (
     <Box display="flex" alignItems="center">
       <NavLink to="/login">
-        <Button>LOGIN</Button>
+        {({ isActive }) =>
+          isActive ? (
+            <Button mr="5" variant="solidActive">
+              LOGIN
+            </Button>
+          ) : (
+            <Button mr="5">LOGIN</Button>
+          )
+        }
       </NavLink>
       <NavLink to="/register">
-        <Button>SIGN UP</Button>
+        {({ isActive }) =>
+          isActive ? (
+            <Button variant="solidActive">SIGN UP</Button>
+          ) : (
+            <Button>SIGN UP</Button>
+          )
+        }
       </NavLink>
     </Box>
   );

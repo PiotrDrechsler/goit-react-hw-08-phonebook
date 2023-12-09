@@ -21,33 +21,27 @@ const Button = defineStyleConfig({
   },
   // Two variants: outline and solid
   variants: {
-    outline: {
-      border: '2px',
-      borderColor: 'transparent',
-      _hover: {
-        bg: 'transparet',
-        border: '2px',
-        borderColor: 'brand.yellow',
-        borderRadius: 50,
-      },
-      _active: {
-        bg: 'brand.lightYellow',
-      },
-      _focusVisible: { border: '2px', borderRadius: 50 },
-    },
     solid: {
       bg: 'brand.yellow',
       color: 'brand.main',
       borderRadius: 50,
       _hover: {
         bg: 'brand.lightYellow',
+        borderRadius: 'none',
+        transition: '0.5s ease',
       },
+      _active: {
+        bg: 'brand.lighterYellow',
+      },
+    },
+    solidActive: {
+      bg: 'brand.lightYellow',
     },
   },
   // The default size and variant values
   defaultProps: {
     size: 'md',
-    variant: 'outline',
+    variant: 'solid',
   },
 });
 
