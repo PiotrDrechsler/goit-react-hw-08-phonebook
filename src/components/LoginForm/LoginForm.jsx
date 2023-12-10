@@ -1,9 +1,23 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Box,
+  InputGroup,
+  InputRightElement,
+} from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+
 import { logIn } from 'redux/auth/operations';
-import { FormControl, FormLabel, Input, Button, Box } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handlePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -20,7 +34,7 @@ export const LoginForm = () => {
   return (
     <Box as="form" onSubmit={handleSubmit} py="4" mx="auto">
       <FormControl id="email" isRequired>
-        <FormLabel _focus={{ color: 'blue.600' }}>Email</FormLabel>
+        <FormLabel>Email</FormLabel>
         <Input
           placeholder="* Enter your email adress"
           width="100%"
@@ -29,15 +43,31 @@ export const LoginForm = () => {
         />
       </FormControl>
       <FormControl mt="10px" id="password" isRequired>
-        <FormLabel _focus={{ color: 'blue.600' }}>Password</FormLabel>
-        <Input
-          placeholder="* Enter your password"
-          width="100%"
-          type="password"
-          name="password"
-        />
+        <FormLabel>Password</FormLabel>
+        <InputGroup>
+          <Input
+            placeholder="* Enter your password"
+            width="100%"
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+          />
+          <InputRightElement width="3rem">
+            <Button
+              variant="icon"
+              h="1.5rem"
+              size="sm"
+              onClick={handlePasswordVisibility}
+            >
+              {showPassword ? (
+                <ViewOffIcon name="view-off" />
+              ) : (
+                <ViewIcon name="view" />
+              )}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
       </FormControl>
-      <Button variant="solid" mt="20px" type="submit">
+      <Button mt="20px" type="submit">
         Log In
       </Button>
     </Box>

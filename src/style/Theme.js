@@ -1,6 +1,8 @@
 import { extendTheme } from '@chakra-ui/react';
 
 import Button from './components/Button';
+import FormLabel from './components/FormLabel';
+import Input from './components/Input';
 
 const theme = extendTheme({
   fonts: {
@@ -25,6 +27,8 @@ const theme = extendTheme({
   },
   components: {
     Button,
+    Input,
+    FormLabel,
   },
 });
 

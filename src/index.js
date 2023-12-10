@@ -9,7 +9,7 @@ import 'modern-normalize';
 
 import App from 'components/App';
 
-import './index.css';
+import './style/index.css';
 
 const PUBLIC_URL = 'goit-react-hw-08-phonebook';
 

@@ -1,10 +1,23 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { Input, Button, FormControl, FormLabel, Box } from '@chakra-ui/react';
+import {
+  Input,
+  Button,
+  FormControl,
+  FormLabel,
+  Box,
+  InputRightElement,
+  InputGroup,
+} from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handlePasswordVisibility = () => setShowPassword(!showPassword);
+
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -24,7 +37,7 @@ export const RegisterForm = () => {
   return (
     <Box as="form" onSubmit={handleSubmit} py="4" mx="auto">
       <FormControl id="name" isRequired>
-        <FormLabel focus={{ color: 'blue.600' }}>Username</FormLabel>
+        <FormLabel>Username</FormLabel>
         <Input
           placeholder="* Enter your username"
           width="100%"
@@ -32,10 +45,11 @@ export const RegisterForm = () => {
           name="name"
           value={userData.name}
           onChange={handleChange}
+          required
         />
       </FormControl>
       <FormControl mt="10px" id="email" isRequired>
-        <FormLabel focus={{ color: 'blue.600' }}>Email</FormLabel>
+        <FormLabel>Email</FormLabel>
         <Input
           placeholder="* Enter your email adress"
           width="100%"
@@ -46,17 +60,33 @@ export const RegisterForm = () => {
         />
       </FormControl>
       <FormControl mt="10px" id="password" isRequired>
-        <FormLabel focus={{ color: 'blue.600' }}>Password</FormLabel>
-        <Input
-          placeholder="* Enter your password"
-          width="100%"
-          type="password"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
+        <FormLabel>Password</FormLabel>
+        <InputGroup>
+          <Input
+            placeholder="* Enter your password"
+            width="100%"
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+          <InputRightElement width="3rem">
+            <Button
+              variant="icon"
+              h="1.5rem"
+              size="sm"
+              onClick={handlePasswordVisibility}
+            >
+              {showPassword ? (
+                <ViewOffIcon name="view-off" />
+              ) : (
+                <ViewIcon name="view" />
+              )}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
       </FormControl>
-      <Button variant="solid" mt="20px" type="submit">
+      <Button mt="20px" type="submit">
         Register
       </Button>
     </Box>

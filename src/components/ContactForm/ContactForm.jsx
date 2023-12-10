@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
-import { FormControl, FormLabel, Input, Button, Flex } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button, Box } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -31,8 +31,8 @@ const ContactForm = () => {
   };
 
   return (
-    <Flex direction="column" align="center" my="10">
-      <FormControl as="form" onSubmit={handleAddContact}>
+    <Box as="form" onSubmit={handleAddContact} my="10">
+      <FormControl>
         <FormLabel htmlFor="name">Name</FormLabel>
         <Input
           type="text"
@@ -43,22 +43,22 @@ const ContactForm = () => {
           required
           mb="4"
         />
+      </FormControl>
+      <FormControl>
         <FormLabel htmlFor="number">Number</FormLabel>
         <Input
           type="tel"
           name="number"
           maxlength="30"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          pattern="(-)?\d{1,}|(-)?\d{1,}(\.)\d{1,}|(-)?\d{1,}(\s)(-)?\d{1,}|(-)?\d{1,}(\s)(-)?\d{1,}(\s)(-)?\d{1,}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           placeholder="e.g. 123-456-789"
           required
           mb="4"
         />
-        <Button variant="solid" type="submit">
-          Add contact
-        </Button>
+        <Button type="submit">Add contact</Button>
       </FormControl>
-    </Flex>
+    </Box>
   );
 };
 
