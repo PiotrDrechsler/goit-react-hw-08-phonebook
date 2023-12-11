@@ -21,6 +21,7 @@ const Filter = () => {
         value={useSelector(selectStatusFilter)}
         onChange={onChange}
         placeholder="Find contacts by name or phone number"
+        required
       />
     </FormControl>
   );
