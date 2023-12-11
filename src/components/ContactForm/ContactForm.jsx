@@ -1,11 +1,21 @@
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FormControl, FormLabel, Input, Button, Box } from '@chakra-ui/react';
+
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
-import { FormControl, FormLabel, Input, Button, Box } from '@chakra-ui/react';
+import { COUNTRIES } from 'components/Countries/Countries';
+import PhoneNumberInput from 'components/PhoneNumberInput/PhoneNumberInput';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
+
+  const countryOptions = COUNTRIES.map(({ name, iso }) => ({
+    label: name,
+    value: iso,
+  }));
+  const [value, setValue] = useState('');
 
   const handleAddContact = e => {
     e.preventDefault();
@@ -32,6 +42,12 @@ const ContactForm = () => {
 
   return (
     <Box as="form" onSubmit={handleAddContact} my="10">
+      <PhoneNumberInput
+        value={value}
+        options={countryOptions}
+        placeholder="Enter phone number"
+        onChange={value => setValue(value)}
+      />
       <FormControl>
         <FormLabel htmlFor="name">Name</FormLabel>
         <Input

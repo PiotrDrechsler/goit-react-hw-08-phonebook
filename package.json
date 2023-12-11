@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.3",
     "framer-motion": "^9.1.7",
+    "libphonenumber-js": "^1.10.51",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "react": "^18.1.0",
@@ -26,7 +27,9 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
+    "react-world-flags": "^1.6.0",
     "redux-persist": "^6.0.0",
+    "states-cities-db": "^1.4.1",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
